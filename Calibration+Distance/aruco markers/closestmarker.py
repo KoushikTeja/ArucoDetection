@@ -15,13 +15,15 @@ t_vectors = calib_data["tVector"]
 
 MARKER_SIZE = 4  # centimeters
 
-marker_dict = aruco.Dictionary_get(aruco.DICT_4X4_50)
+marker_dict = aruco.getPredefinedDictionary(aruco.DICT_4X4_50)
 
-param_markers = aruco.DetectorParameters_create()
+param_markers = aruco.DetectorParameters()
 
+detector = aruco.ArucoDetector(marker_dict,param_markers)
 
 def markclosest():
     cap = cv.VideoCapture(0)
+
 
     while True:
 
